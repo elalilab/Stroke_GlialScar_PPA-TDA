@@ -30,7 +30,7 @@ process_initial_data <- function(Cells_Path, pattern, coordinates_columns, filen
   
   Cells <- subset(Cells, select = c(MouseID, DPI, Region, Section, ObjectID, Z, X, Y))
   
-  # Write a .csv file 
+  # Write a .csv file
   write.csv(Cells, filename)
   
   }
@@ -56,8 +56,8 @@ process_brain <- function(basePath, resultsPath, path) {
   process_initial_data(Neun_Path, "detections.tsv", c(46, 47, 48), Neun_Filename, path)
 }
 
-basePath <- "D:/Daniel/Project-ECM/2.Images/Exp2-Gfap,NeuN,Iba1_5x/QupathProjects"
-resultsPath <- "D:/Daniel/Project-ECM/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1_5x/Results/Coordinates"
+basePath <- "D:/Research/Project_GlialTopology/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1/QupathProjects"
+resultsPath <- "D:/Research/Project_GlialTopology/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1/CellCoordinates_5x"
 
 brains <- list.dirs(basePath, full.names = FALSE, recursive = FALSE)
 
@@ -71,7 +71,7 @@ for (brain in brains){
 
 ## NeuN
 
-setwd("D:/Daniel/Project-ECM/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1_5x/Results/Coordinates/")
+setwd("D:/Research/Project_GlialTopology/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1/CellCoordinates_5x")
 
 NeuN_Cells <- list.files(pattern = "NeuN_Coordinates.csv") %>%        # Create object with all .tsv files in directory
   lapply(read.csv) %>%                              # Store all files in list
