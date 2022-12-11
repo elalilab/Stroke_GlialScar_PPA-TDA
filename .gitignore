@@ -1,0 +1,9 @@
+.idea
+QupathProjects/*/*.xml
+QupathProjects/*/*.json
+QupathProjects/*/*.csv
+QupathProjects/*/*.tsv
+QupathProjects/*/*.qpproj
+QupathProjects/*/*.qpproj.backup
+QupathProjects/*/data
+QupathProjects/*/classifiers

@@ -1,0 +1,9 @@
+Image	Name	Class	Parent	ROI	Centroid X µm	Centroid Y µm	ID	Parent ID	Side	Num Detections	Num Negative	Num Positive	Positive %	Num Positive per mm^2	Area µm^2	Perimeter µm
+ECM_Exp2_M02_30D_Scene3.tif	CNU	Left: CNU	Image	Geometry	7693	3764.2	623	567	0	2177	534	1643	75.47	197.69	8311003.4	21900.5
+ECM_Exp2_M02_30D_Scene3.tif	CTX	Left: CTX	Image	Geometry	8592.3	2369.4	688	567	0	2648	906	1742	65.79	212.67	8191180.7	17302.9
+ECM_Exp2_M02_30D_Scene3.tif	IB	Left: IB	Image	Geometry	6457.4	4875.6	1129	343	0	34	17	17	50	15.44	1100840.5	6207.1
+ECM_Exp2_M02_30D_Scene3.tif	CNU	Right: CNU	Image	Geometry	4328.2	3814.7	623	567	0	426	314	112	26.29	12.86	8709165.2	21482.9
+ECM_Exp2_M02_30D_Scene3.tif	CTX	Right: CTX	Image	Geometry	3518	2425.1	688	567	0	462	372	90	19.48	10.4	8650730.5	17831.2
+ECM_Exp2_M02_30D_Scene3.tif	IB	Right: IB	Image	Geometry	5465.6	4897.7	1129	343	0	30	22	8	26.67	7.199	1111209.9	6204.7
+ECM_Exp2_M02_30D_Scene3.tif	fiber tracts	Left: fiber tracts	Image	Geometry	7057.2	3439.1	1009	997	0	254	42	212	83.46	140.77	1506050.4	22108.3
+ECM_Exp2_M02_30D_Scene3.tif	fiber tracts	Right: fiber tracts	Image	Geometry	4978.3	3459.2	1009	997	0	74	53	21	28.38	14.67	1431040.7	21945.4
