@@ -7,3 +7,4 @@ QupathProjects/*/*.qpproj
 QupathProjects/*/*.qpproj.backup
 QupathProjects/*/data
 QupathProjects/*/classifiers
+.Rproj
