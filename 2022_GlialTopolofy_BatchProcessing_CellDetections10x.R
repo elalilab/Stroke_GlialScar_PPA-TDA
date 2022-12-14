@@ -19,8 +19,8 @@ process_initial_data <- function(basePath, Cells_Path, filename, resuultsPath) {
   # Write a .csv file 
   write.csv(Cells, paste0(resultsPath, "/", Cells_Path, filename))
 }
-basePath <- "D:/Daniel/Project-ECM/2.Images/Exp2-Gfap,NeuN,Iba1_Striatum_10X/QupathProjects"
-resultsPath <- "D:/Daniel/Project-ECM/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1_5x/Results/Coordinates_10x"
+basePath <- "QupathProjects_10x"
+resultsPath <- "ResultsTables/CellCoordinates_10x"
 
 process_folder <- function(folderPath, filename_suffix) {
   files <- list.files(folderPath, pattern = "_detections.tsv", full.names = FALSE)

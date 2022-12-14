@@ -8,3 +8,4 @@ QupathProjects/*/*.qpproj.backup
 QupathProjects/*/data
 QupathProjects/*/classifiers
 .Rproj
+.Rproj.user

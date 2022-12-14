@@ -25,10 +25,8 @@ process_annotation <- function(results_path, path) {
   write.table(Annotations, results_path, append = TRUE, sep=",")
 }
 
-basePath <- "/QupathProjects/"
-resultsPath <- "/ResultsTables/"
-
-Gfap_csv_path <- paste0(resultsPath, "/Gfap_CellDetection.csv")
+basePath <- "QupathProjects_5x"
+resultsPath <- "ResultsTables"
 
 Annotations_Header <- c("Image",	"Name",	"Class",	"Parent",	"ROI",	"Centroid X ?m",	"Centroid Y ?m",	"ID",	"Parent ID",	"Side",	"Num Detections",	"Area ?m^2",	"Perimeter ?m")
 

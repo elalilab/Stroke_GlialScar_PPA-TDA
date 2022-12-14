@@ -1,15 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Apr 14 13:24:51 2022
-
-@author: danie
 """
 
-# brainrender script for plotting cells from ClearMap 
-
-# Author: 	Luke Hammond
-# Cellular Imaging | Zuckerman Institute, Columbia University
-# Date:	1st October, 2021
+# Code modified from Luke Hammond (Cellular Imaging | Zuckerman Institute, Columbia University)
 
 import numpy as np
 
@@ -40,11 +34,10 @@ brainrender.settings.ROOT_ALPHA = 0.2  # transparency of the overall brain model
 print(f"[{orange}]Running example: {Path(__file__).name}")
 
 
-# Provide path to ClearMap cells csv file that you wish to plot
+# Provide path to cell coodinates
 NeuN = "D:/Research/Project_GlialTopology/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1/Results/Coordinates/ECM_Exp2_M05_30D_NeuN_Coordinates.csv"
 Gfap = "D:/Research/Project_GlialTopology/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1/Results/Coordinates/ECM_Exp2_M05_30D_Gfap_Coordinates.csv"
 Iba1 = "D:/Research/Project_GlialTopology/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1/Results/Coordinates/ECM_Exp2_M05_30D_Iba1_Coordinates.csv"
-
 
 
 #Define brain regions - leave array empty if plotting all cells
@@ -52,9 +45,7 @@ Iba1 = "D:/Research/Project_GlialTopology/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1/Res
 
 
 def read_in_cells(filename):
-    #this function reads in ClearMap csv files and can be used to filter to region at the same time
-    #expects csv created using modified cellmap protocol, with region IDs and acronyms included
-    #use pandas to read in specific columns from BrainJ csv output file
+  # Select columns in the data table where coordinates are
     cells = pd.read_csv(filename, usecols=[3,5,6,7,8], names = ['Ac','ID','Z','X','Y'], #, usecols=col_list)
                           skiprows = [0]) #skip header row
 

@@ -1,9 +1,0 @@
-Image	Name	Class	Parent	ROI	Centroid X µm	Centroid Y µm	ID	Parent ID	Side	Num Detections	Area µm^2	Perimeter µm
-ECM_Exp2_M35_30D_Scene7.tif	fiber tracts	Left: fiber tracts	Image	Geometry	8097.9	2686.2	1009	997	0	816	1560601.4	25457.8
-ECM_Exp2_M35_30D_Scene7.tif	fiber tracts	Right: fiber tracts	Image	Geometry	3965.7	2989	1009	997	0	648	1586665.4	25821.1
-ECM_Exp2_M35_30D_Scene7.tif	CTX	Right: CTX	Image	Geometry	3119.6	3088.9	688	567	0	3111	14171783.3	32312.7
-ECM_Exp2_M35_30D_Scene7.tif	IB	Right: IB	Image	Geometry	4390.3	3562.3	1129	343	0	72	998951.9	5091.8
-ECM_Exp2_M35_30D_Scene7.tif	MB	Right: MB	Image	Geometry	5225.9	3289.4	313	343	0	653	5007691.6	14822.4
-ECM_Exp2_M35_30D_Scene7.tif	CTX	Left: CTX	Image	Geometry	8874.1	2680.8	688	567	0	7873	13364569.7	31960.9
-ECM_Exp2_M35_30D_Scene7.tif	IB	Left: IB	Image	Geometry	7861.1	3446.7	1129	343	0	1175	998180	5131.3
-ECM_Exp2_M35_30D_Scene7.tif	MB	Left: MB	Image	Geometry	6971.6	3192.1	313	343	0	1298	5011502.9	14714.1

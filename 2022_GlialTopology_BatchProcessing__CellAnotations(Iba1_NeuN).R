@@ -29,8 +29,8 @@ process_annotation <- function(results_path, path) {
 }
 
 
-basePath <- "D:/Daniel/Project-ECM/2.Images/Exp2-Gfap,NeuN,Iba1_5x/QupathProjects"
-resultsPath <- "D:/Daniel/Project-ECM/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1_5x/Results"
+basePath <- "QupathProjects_5x"
+resultsPath <- "ResultsTables"
 
 Iba1_csv_path <- paste0(resultsPath, "/Iba1_Summary.csv")
 NeuN_csv_path <- paste0(resultsPath, "/NeuN_Summary.csv")

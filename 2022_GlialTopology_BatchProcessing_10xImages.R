@@ -4,8 +4,6 @@ library(ggplot2)
 library(dplyr)
 library(purrr)
 
-setwd("D:/Research/Project_GlialTopology/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1")
-
 coordinatesPath <- "CellCoordinates_10x"
 
 # Results to generate

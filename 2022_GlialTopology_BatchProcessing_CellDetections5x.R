@@ -56,8 +56,8 @@ process_brain <- function(basePath, resultsPath, path) {
   process_initial_data(Neun_Path, "detections.tsv", c(46, 47, 48), Neun_Filename, path)
 }
 
-basePath <- "D:/Research/Project_GlialTopology/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1/QupathProjects"
-resultsPath <- "D:/Research/Project_GlialTopology/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1/CellCoordinates_5x"
+basePath <- "QupathProjects_5x"
+resultsPath <- "ResultsTables/CellCoordinates_5x"
 
 brains <- list.dirs(basePath, full.names = FALSE, recursive = FALSE)
 
@@ -66,33 +66,3 @@ for (brain in brains){
 }
 
 
-
-### Merge all sections
-
-## NeuN
-
-setwd("D:/Research/Project_GlialTopology/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1/CellCoordinates_5x")
-
-NeuN_Cells <- list.files(pattern = "NeuN_Coordinates.csv") %>%        # Create object with all .tsv files in directory
-  lapply(read.csv) %>%                              # Store all files in list
-  bind_rows                                         # Combine data sets into one data set 
-
-write.csv(NeuN_Cells_Compilation, "NeuN_Cells_Compilation.csv")
-
-
-## Gfap
-
-Gfap_Cells <- list.files(pattern = "Gfap_Coordinates.csv") %>%        # Create object with all .tsv files in directory
-  lapply(read.csv) %>%                              # Store all files in list
-  bind_rows                                         # Combine data sets into one data set 
-
-write.csv(Gfap_Cells_Compilation, "Gfap_Cells_Compilation.csv")
-
-## Iba1
-
-Iba1_Cells <- list.files(pattern = "Iba1_Coordinates.csv") %>%        # Create object with all .tsv files in directory
-  lapply(read.csv) %>%                              # Store all files in list
-  bind_rows                                         # Combine data sets into one data set 
-
-
-write.csv(Iba1_Cells_Compilation, "Iba1_Cells_Compilation.csv")
