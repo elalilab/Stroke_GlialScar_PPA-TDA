@@ -4,9 +4,7 @@ library(ggplot2)
 library(dplyr)
 library(purrr)
 
-setwd("D:/Research/Project_GlialTopology/3.DataAnalysis/Exp2-Gfap,NeuN,Iba1")
-
-coordinatesPath <- "CellCoordinates_5x"
+coordinatesPath <- "ResultsTables/CellCoordinates_5x"
 densityTablesPath <- "ResultsTables"
 
 Cells_Intensity_CSV_Path <- paste0(densityTablesPath, "/Cells_Intensity.csv")

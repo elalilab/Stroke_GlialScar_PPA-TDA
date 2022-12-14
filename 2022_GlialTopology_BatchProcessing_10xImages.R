@@ -4,7 +4,7 @@ library(ggplot2)
 library(dplyr)
 library(purrr)
 
-coordinatesPath <- "CellCoordinates_10x"
+coordinatesPath <- "ResultsTables/CellCoordinates_10x"
 
 # Results to generate
 Result_Hyperframe <- NULL
