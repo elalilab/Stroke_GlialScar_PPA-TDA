@@ -1,4 +1,6 @@
+# IDE
 .idea
+
 QupathProjects/*/*.xml
 QupathProjects/*/*.json
 QupathProjects/*/*.csv
@@ -7,5 +9,17 @@ QupathProjects/*/*.qpproj
 QupathProjects/*/*.qpproj.backup
 QupathProjects/*/data
 QupathProjects/*/classifiers
+
+# R
 .Rproj
 .Rproj.user
+
+# Mac OS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
