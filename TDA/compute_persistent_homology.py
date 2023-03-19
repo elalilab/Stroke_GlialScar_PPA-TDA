@@ -1,3 +1,8 @@
+#
+# Author: Dhananjay Bhaskar <dhananjay.bhaskar@yale.edu>
+# Usage: srun --pty -t 16:00:00 --gpus a100:1 --cpus-per-gpu 16 --mem=128G --partition gpu zsh
+#
+
 import os, glob, copy, random
 
 import numpy as np
@@ -52,7 +57,7 @@ def grid_subsampling(points, voxel_size):
 
 cell_type = "Iba1"
 max_dim = 1
-grid_voxel_size = 150
+grid_voxel_size = 120  #150
 
 csv_files = glob.glob(os.path.join("data", cell_type, "*.csv"))
 betti_curve = BettiCurve(n_bins=100, n_jobs=-1)
@@ -73,14 +78,32 @@ for csv_fname in csv_files:
     df = pd.read_csv(csv_fname)
     coords_Iba = df[['X', 'Y', 'Z']].to_numpy()
     print("Total number of microglia (Iba1) : " + str(coords_Iba.shape[0]))
+    pcd_Iba = np.array(grid_subsampling(coords_Iba, grid_voxel_size))
+    print("Sampled " + str(pcd_Iba.shape[0]) + " microglia out of " + str(coords_Iba.shape[0]))
+
+    dgm = rpp_py.run("--dim " + str(max_dim) + " --format point-cloud", pcd_Iba)
+    gtda_dgm_Iba = ripser2gtda(dgm, max_dim)
+    bc_Iba = betti_curve.fit_transform([gtda_dgm_Iba])
 
     df = pd.read_csv(os.path.join("data", "Gfap", f"ECM_Exp2_{mid}_{dpi}_Gfap.csv"))
     coords_Gfap = df[['X', 'Y', 'Z']].to_numpy()
     print("Total number of astrocytes (Gfap) : " + str(coords_Gfap.shape[0]))
+    pcd_Gfap = np.array(grid_subsampling(coords_Gfap, grid_voxel_size))
+    print("Sampled " + str(pcd_Gfap.shape[0]) + " astrocyctes out of " + str(coords_Gfap.shape[0]))
+
+    dgm = rpp_py.run("--dim " + str(max_dim) + " --format point-cloud", pcd_Gfap)
+    gtda_dgm_Gfap = ripser2gtda(dgm, max_dim)
+    bc_Gfap = betti_curve.fit_transform([gtda_dgm_Gfap])
 
     df = pd.read_csv(os.path.join("data", "NeuN", f"ECM_Exp2_{mid}_{dpi}_NeuN.csv"))
     coords_NeuN = df[['X', 'Y', 'Z']].to_numpy()
     print("Total number of neurons (NeuN) : " + str(coords_NeuN.shape[0]))
+    pcd_NeuN = np.array(grid_subsampling(coords_NeuN, grid_voxel_size))
+    print("Sampled " + str(pcd_NeuN.shape[0]) + " neurons out of " + str(coords_NeuN.shape[0]))
+
+    dgm = rpp_py.run("--dim " + str(max_dim) + " --format point-cloud", pcd_NeuN)
+    gtda_dgm_NeuN = ripser2gtda(dgm, max_dim)
+    bc_NeuN = betti_curve.fit_transform([gtda_dgm_NeuN])
 
     coords_Iba_Gfap = np.vstack([coords_Iba, coords_Gfap])
     pcd_Iba_Gfap = np.array(grid_subsampling(coords_Iba_Gfap, grid_voxel_size))
@@ -115,16 +138,25 @@ for csv_fname in csv_files:
     bc_Iba_Gfap_NeuN = betti_curve.fit_transform([gtda_dgm_Iba_Gfap_NeuN])
 
     save_data = {
+		"Iba_ptcloud" : pcd_Iba,
+		"Gfap_ptcloud" : pcd_Gfap,
+		"NeuN_ptcloud" : pcd_NeuN,
         "Iba_Gfap_ptcloud" : pcd_Iba_Gfap,
         "Iba_NeuN_ptcloud" : pcd_Iba_NeuN,
         "Gfap_NeuN_ptcloud" : pcd_Gfap_NeuN,
         "Iba_Gfap_NeuN_ptcloud" : pcd_Iba_Gfap_NeuN,
 
+		"Iba_dgm" : gtda_dgm_Iba,
+		"Gfap_dgm" : gtda_dgm_Gfap,
+		"NeuN_dgm" : gtda_dgm_NeuN,
         "Iba_Gfap_dgm" : gtda_dgm_Iba_Gfap,
         "Iba_NeuN_dgm" : gtda_dgm_Iba_NeuN,
         "Gfap_NeuN_dgm" : gtda_dgm_Gfap_NeuN,
         "Iba_Gfap_NeuN_dgm" : gtda_dgm_Iba_Gfap_NeuN,
 
+		"Iba_bc" : bc_Iba,
+		"Gfap_bc" : bc_Gfap,
+		"NeuN_bc" : bc_NeuN,
         "Iba_Gfap_bc" : bc_Iba_Gfap,
         "Iba_NeuN_bc" : bc_Iba_NeuN,
         "Gfap_NeuN_bc" : bc_Gfap_NeuN,
