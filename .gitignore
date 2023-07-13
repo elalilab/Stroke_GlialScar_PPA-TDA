@@ -10,3 +10,6 @@ QupathProjects/*/classifiers
 .Rproj
 .Rproj.user
 /Scripts/
+/ResultsTables/CellCoordinates_10x/
+/ResultsTables/CellCoordinates_5x/
+/Lib/
