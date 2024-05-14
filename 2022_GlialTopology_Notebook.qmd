@@ -1,20 +1,52 @@
 ---
 title: "Dissecting glial scar formation by spatial point pattern and topological data analysis"
 subtitle: "Supplementary data analysis notebook"
+date-format: full
+author: 
+  - name: "Daniel Manrique-Castano"
+    orcid: 0000-0002-1912-1764
+    degrees:
+      - PhD
+    affiliation: 
+      - name: Univerisity Laval 
+        department: Psychiatry and Neuroscience
+        group: Laboratory of neurovascular interactions 
+note: "GitHub: https://daniel-manrique.github.io/"
+
+keywords: 
+  - Point patterns analysis (PPA)
+  - Tpological data analysis (TDA)
+  - Spatstat
+  - Cell covariance
+  - Brain injury
+  - Bayesian modeling 
+  
+license: "CC BY"
+
 format:
+   pdf: 
+    toc: true
+    number-sections: true
+    colorlinks: true
    html:
     code-fold: true
     embed-resources: true
     toc: true
+    toc-depth: 2
     toc-location: left
     theme: spacelab
+
 knitr:
   opts_chunk: 
     warning: false
     message: false
-editor: source
+
 csl: nature-communications.csl
 bibliography: references.bib
+editor: 
+  markdown: 
+    wrap: sentence
+ 
 ---
 
 This notebook contains the analysis pipeline employed for the article "Dissecting glial scar formation by spatial point pattern and topological data analysis" published in XXX. This notebook allows the replication of results and the implementation of point pattern analysis (PPA) in multiple context. If the analysis approach is useful for your own experimental purposes, please cite us:
@@ -8334,6 +8366,7 @@ plot(Astrocytes_Microglia_Dist_5D,
      main=NULL, 
      las=1, 
      legendargs=list(xpd=TRUE),
+     ylim =c(0, 15000),
      lwd = 6, 
      legend=FALSE, 
      xlab = "",
@@ -8343,7 +8376,7 @@ plot(Astrocytes_Microglia_Dist_5D,
 
 axis(1, at = seq(0, 0.030, 0.01), labels = c("0",  "0.01", "0.02", "0.03"), cex.axis=2.5, padj = 0.5, lwd.ticks = 5)
 
-axis(2, at = seq(0, 5000, 1000), labels = c("0","1000", "2000", "3000", "4000", "5000"), cex.axis=2.5, padj = 0.5, lwd.ticks = 5, las = 2)
+axis(2, at = seq(0, 15000, 3000), labels = c("0","3000", "60000", "9000", "12000", "15000"), cex.axis=2.5, padj = 0.5, lwd.ticks = 5, las = 2)
 
 title(xlab = "Distance to microglia (mm)", mgp = c(4.5, 1, 0), cex.lab = 3)   
 title(ylab = "p(astrocytes)", mgp = c(7, 1, 0), cex.lab = 3) 
@@ -8358,17 +8391,17 @@ plot(Astrocytes_Microglia_Dist_15D,
      main=NULL, 
      las=1, 
      legendargs=list(xpd=TRUE),
+     ylim =c(0, 15000),
      lwd = 6, 
      legend=FALSE, 
      xlab = "",
      ylab = "", 
-     ylim = c(0, 12000),
      xaxt = "n",
      yaxt = "n")
 
 axis(1, at = seq(0, 0.03, 0.01), labels = c("0",  "0.01", "0.02", "0.03"), cex.axis=2.5, padj = 0.5, lwd.ticks = 5)
 
-axis(2, at = seq(0, 12000, 3000), labels = c("0","3000", "6000", "9000", "12000"), cex.axis=2.5, padj = 0.5, lwd.ticks = 5, las = 2)
+axis(2, at = seq(0, 15000, 3000), labels = c("0","3000", "60000", "9000", "12000", "15000"), cex.axis=2.5, padj = 0.5, lwd.ticks = 5, las = 2)
 
 title(xlab = "Distance to microglia (mm)", mgp = c(4.5, 1, 0), cex.lab = 3)   
 title(ylab = "p(astrocytes)", mgp = c(8, 1, 0), cex.lab = 3)
@@ -8383,17 +8416,17 @@ plot(Astrocytes_Microglia_Dist_30D,
      main=NULL, 
      las=1, 
      legendargs=list(xpd=TRUE),
+     ylim =c(0, 15000),
      lwd = 6, 
      legend=FALSE, 
      xlab = "",
      ylab = "", 
-     ylim = c(0, 20000),
      xaxt = "n",
      yaxt = "n")
 
 axis(1, at = seq(0, 0.035, 0.01), labels = c("0",  "0.01", "0.02", "0.03"), cex.axis=2.5, padj = 0.5, lwd.ticks = 5)
 
-axis(2, at = seq(0, 20000, 5000), labels = c("0","5000", "10000", "15000", "20000"), cex.axis=2.5, padj = 0.5, lwd.ticks = 5, las = 2)
+axis(2, at = seq(0, 15000, 3000), labels = c("0","3000", "60000", "9000", "12000", "15000"), cex.axis=2.5, padj = 0.5, lwd.ticks = 5, las = 2)
 
 title(xlab = "Distance to microglia (mm)", mgp = c(4.5, 1, 0), cex.lab = 3)   
 title(ylab = "p(astrocytes)", mgp = c(8, 1, 0), cex.lab = 3)
