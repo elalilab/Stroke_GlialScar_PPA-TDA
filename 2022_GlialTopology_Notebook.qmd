@@ -9017,5 +9017,6 @@ Microglia display weaker evidence for a difference in the L-functions. This sugg
 
 
 ```{r}
+writeLines(capture.output(sessionInfo()), "SessionInfo.txt")
 sessionInfo()
 ```
